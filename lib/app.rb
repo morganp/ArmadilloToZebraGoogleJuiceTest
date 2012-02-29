@@ -4,7 +4,7 @@ require 'sinatra/base'
 #require 'sinatra/session'
 #require 'sinatra/flash'
 require_relative 'partials'
- 
+
 Dir[File.dirname(__FILE__) + '/lib/models/*.rb'].each {|file| require file }
 
 
@@ -54,17 +54,17 @@ module ArmadilloToZebraGoogleJuiceTest
       #  password = $2
       #  hostname = $3
       #  database = $4
-#
-    #    ActiveRecord::Base.establish_connection(
-    #      :adapter  => 'postgresql',
-    #      :host     => hostname,
-      #    :username => username,
-      #    :password => password,
-#          :database => database
-#        )
-#      end
+      #
+      #    ActiveRecord::Base.establish_connection(
+      #      :adapter  => 'postgresql',
+      #      :host     => hostname,
+      #      :username => username,
+      #      :password => password,
+      #      :database => database
+      #    )
+      # end
     end
-#
+
 
     #Ran on Server Error
     error do
@@ -80,24 +80,35 @@ module ArmadilloToZebraGoogleJuiceTest
 
 
     get '/' do
-      'HelloWorld!'
+    erb:'sitemap'
     end
 
     get '/WA3kM6' do
+      @title   = false
+      @heading = false
       erb:'basic'
     end
 
     get '/Qv8P3L' do
-
+      @title   = true
+      @heading = false
+      erb:'basic'
     end
 
     get '/GyDhEk' do
+      @title   = false
+      @heading = true
+      erb:'basic'
     end
 
     get '/EXbUQh' do
+      @title   = true
+      @heading = true
+      erb:'basic'
     end
 
-
+#Lots of links on the page
+    # lots of links to the page
 
 
   end
