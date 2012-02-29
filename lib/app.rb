@@ -8,7 +8,7 @@ require_relative 'partials'
 Dir[File.dirname(__FILE__) + '/lib/models/*.rb'].each {|file| require file }
 
 
-require 'active_record'
+#require 'active_record'
 
 
 module ArmadilloToZebraGoogleJuiceTest
@@ -35,10 +35,10 @@ module ArmadilloToZebraGoogleJuiceTest
       also_reload "models/*.rb"
       also_reload "helpers/*.rb"
 
-      ActiveRecord::Base.establish_connection(
-        :adapter   => 'sqlite3',
-        :database  => './db/devel.db'
-      )
+      #ActiveRecord::Base.establish_connection(
+      #  :adapter   => 'sqlite3',
+      #  :database  => './db/devel.db'
+      #)
     end
 
     configure :test do
@@ -47,24 +47,24 @@ module ArmadilloToZebraGoogleJuiceTest
 
     configure :production do
       $site_config[:analytics_ena] = true
-      db = ENV["DATABASE_URL"]
-      db ||= '' # Making it safe ofr non heroku deployment
-      if db.match(/postgres:\/\/(.*):(.*)@(.*)\/(.*)/) 
-        username = $1
-        password = $2
-        hostname = $3
-        database = $4
-
-        ActiveRecord::Base.establish_connection(
-          :adapter  => 'postgresql',
-          :host     => hostname,
-          :username => username,
-          :password => password,
-          :database => database
-        )
-      end
+      #db = ENV["DATABASE_URL"]
+      #db ||= '' # Making it safe ofr non heroku deployment
+      #if db.match(/postgres:\/\/(.*):(.*)@(.*)\/(.*)/) 
+      #  username = $1
+      #  password = $2
+      #  hostname = $3
+      #  database = $4
+#
+    #    ActiveRecord::Base.establish_connection(
+    #      :adapter  => 'postgresql',
+    #      :host     => hostname,
+      #    :username => username,
+      #    :password => password,
+#          :database => database
+#        )
+#      end
     end
-
+#
 
     #Ran on Server Error
     error do
