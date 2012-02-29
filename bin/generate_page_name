@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+def gen_alphakey( size )
+  o =  [(1..9),('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten;  
+  string  =  (0...size).map{ o[rand(o.length)]  }.join;
+end
+
+if $0 == __FILE__
+  puts gen_alphakey( 6 )
+end
+
