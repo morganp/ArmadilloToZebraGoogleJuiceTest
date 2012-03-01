@@ -17,6 +17,8 @@ module ArmadilloToZebraGoogleJuiceTest
     #register Sinatra::Session
     use Rack::MethodOverride
     set :public_folder, "public"
+    #  Allow white space control in erb templates using -%>
+    set :erb, :trim => '-'
     helpers Sinatra::Partials
 
     ## Flash messages
