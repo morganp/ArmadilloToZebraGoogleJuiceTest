@@ -1,4 +1,3 @@
-
 require 'rubygems'
 require 'sinatra/base'
 #require 'sinatra/session'
@@ -78,63 +77,46 @@ module ArmadilloToZebraGoogleJuiceTest
     #Some session setup
     set :session_fail, '/login'
 
-
+    # Currently serving 8 variations of the page
+    @pages = ['WA3kM6', 'Qv8P3L', 'GyDhEk', 'EXbUQh']
+    
+    # Add some pages with descriptive urls
+    @pages.each do |page|
+      @pages << 'armadillio_to_zebra_google_juice_test_' + page
+    end
+    
+    
     get '/' do
-    erb:'sitemap'
+      erb:'sitemap'
     end
-
-    ## url prefix
-    get '/armadillio_to_zebra_google_juice_test_WA3kM6' do
-      @title   = false
-      @heading = false
+    
+    get '*' do 
+      # this will work for with or with out the url prefix.
+      # '/armadillio_to_zebra_google_juice_test_WA3kM6'
+      if params[:splat].match('WA3kM6')
+        @title   = false
+        @heading = false
+      end
+      if params[:splat].match('Qv8P3L')
+        @title   = true
+        @heading = false
+      end
+      if params[:splat].match('GyDhEk')
+        @title   = false
+        @heading = true
+      end
+      if params[:splat].match('EXbUQh')
+        @title   = true
+        @heading = true
+      end
+    
+    
       erb:'basic'
     end
 
-    get '/armadillio_to_zebra_google_juice_test_Qv8P3L' do
-      @title   = true
-      @heading = false
-      erb:'basic'
-    end
-
-    get '/armadillio_to_zebra_google_juice_test_GyDhEk' do
-      @title   = false
-      @heading = true
-      erb:'basic'
-    end
-
-    get '/armadillio_to_zebra_google_juice_test_EXbUQh' do
-      @title   = true
-      @heading = true
-      erb:'basic'
-    end
-
-    ## NON url prefix
-    get '/WA3kM6' do
-      @title   = false
-      @heading = false
-      erb:'basic'
-    end
-
-    get '/Qv8P3L' do
-      @title   = true
-      @heading = false
-      erb:'basic'
-    end
-
-    get '/GyDhEk' do
-      @title   = false
-      @heading = true
-      erb:'basic'
-    end
-
-    get '/EXbUQh' do
-      @title   = true
-      @heading = true
-      erb:'basic'
-    end
-
-#Lots of links on the page
+    # Lots of links on the page
     # lots of links to the page
+    # google +1's
 
 
   end
