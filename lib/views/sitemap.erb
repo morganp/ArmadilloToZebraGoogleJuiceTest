@@ -5,8 +5,8 @@
   </head>
   <body>
     <nav>
-    <% ['WA3kM6', 'Qv8P3L', 'GyDhEk', 'EXbUQh'].shuffle.each do |page| %>
-    <a href='<%= page %>'><%= page %></a>
+    <% @pages.shuffle.each do |page| %>
+    <a href='<%= page %>'><%= page.gsub('armadillio_to_zebra_google_juice_test_', '') %></a>
   <% end %>
     </nav>
   </body>
