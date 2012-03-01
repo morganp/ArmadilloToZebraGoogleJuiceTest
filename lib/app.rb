@@ -83,6 +83,32 @@ module ArmadilloToZebraGoogleJuiceTest
     erb:'sitemap'
     end
 
+    ## url prefix
+    get '/armadillio_to_zebra_google_juice_test_WA3kM6' do
+      @title   = false
+      @heading = false
+      erb:'basic'
+    end
+
+    get '/armadillio_to_zebra_google_juice_test_Qv8P3L' do
+      @title   = true
+      @heading = false
+      erb:'basic'
+    end
+
+    get '/armadillio_to_zebra_google_juice_test_GyDhEk' do
+      @title   = false
+      @heading = true
+      erb:'basic'
+    end
+
+    get '/armadillio_to_zebra_google_juice_test_EXbUQh' do
+      @title   = true
+      @heading = true
+      erb:'basic'
+    end
+
+    ## NON url prefix
     get '/WA3kM6' do
       @title   = false
       @heading = false
