@@ -80,11 +80,12 @@ module ArmadilloToZebraGoogleJuiceTest
     set :session_fail, '/login'
 
     # Currently serving 8 variations of the page
-    @pages = ['WA3kM6', 'Qv8P3L', 'GyDhEk', 'EXbUQh']
+    pages = ['WA3kM6', 'Qv8P3L', 'GyDhEk', 'EXbUQh']
     
     # Add some pages with descriptive urls
-    @pages.each do |page|
-      @pages << 'armadillio_to_zebra_google_juice_test_' + page
+    $pages = pages.dup
+    pages.each do |page|
+      $pages << 'armadillio_to_zebra_google_juice_test_' + page
     end
     
     

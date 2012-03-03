@@ -5,7 +5,7 @@
   </head>
   <body>
     <nav>
-    <% @pages.shuffle.each do |page| %>
+    <% $pages.shuffle.each do |page| %>
     <a href='<%= page %>'><%= page.gsub('armadillio_to_zebra_google_juice_test_', '') %></a>
   <% end %>
     </nav>
