@@ -94,21 +94,23 @@ module ArmadilloToZebraGoogleJuiceTest
     end
     
     get '*' do 
+      url =  params[:splat][0]
+      
       # this will work for with or with out the url prefix.
       # '/armadillio_to_zebra_google_juice_test_WA3kM6'
-      if params[:splat].match('WA3kM6')
+      if url.match('WA3kM6')
         @title   = false
         @heading = false
       end
-      if params[:splat].match('Qv8P3L')
+      if url.match('Qv8P3L')
         @title   = true
         @heading = false
       end
-      if params[:splat].match('GyDhEk')
+      if url.match('GyDhEk')
         @title   = false
         @heading = true
       end
-      if params[:splat].match('EXbUQh')
+      if url.match('EXbUQh')
         @title   = true
         @heading = true
       end
